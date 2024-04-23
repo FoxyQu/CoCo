@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CoCo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <img class="logo" src="static/logo.png" alt="логотип проекта - цыпленок">
+        <div class="text-container">
+            <h2>Корпус переписок</h2>
+            <h1>CoCo</h1>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <h2>Добро пожаловать в корпус переписок!</h2>
+            <h3>Как можно сделать запрос?</h3>
+            <details>
+                <summary> Запрос по словоформе</summary>
+                <p class="query_desc">Чтобы найти тексты с точной словоформой, введите нужную словоформу в двойных кавычках. Например:</p>
+                <p class="query_desc__example"><i>"невдупленыша"</i></p>
+            </details>
+
+
+            <details>
+                <summary> Запрос по лемме </summary>
+                    <p class="query_desc">Чтобы найти тексты с леммой, введите нужную лемму без кавчек. Например:</p>
+                    <p class="query_desc__example"><i>невдупленыш</i></p>
+            </details>
+
+           <details>
+            <summary>Запрос по части речи</summary>
+                <p class="query_desc">Чтобы найти тексты с определенной частью речи, введите условное обозначение нужной части речи (используйте обозначение <a href="https://universaldependencies.org/u/pos/">частей речи UD</a>). Например:</p>
+                <p class="query_desc__example"><i>NOUN</i></p>
+
+           </details>
+
+            <details>
+                <summary> Запрос по словоформе и части речи </summary>
+                    <p class="query_desc">Чтобы найти тексты со словоформой определенной части речи, введите словоформу в двойных кавычках, значк + и условное обозначение нужной части речи. Например:</p>
+                    <p class="query_desc__example"><i>"чиво"+ADV</i></p>
+            </details>
+
+            <form action="/res" method="get">
+                <input type="text" id="search" name="q" placeholder="Поиск" value={{q}}>
+                <input type="submit" class="button" value="Найти">
+            </form>
+            {% if q %}
+                <p>Ваш запрос: <i>{{q}}</i></p>
+            {% endif %}
+            {% if data %}
+                <p>Количество вхождений: <p class="query_desc__example">{{data[-1]}}</p></p>
+            {% endif %}
+            <p>{{res}}</p>
+            {% for example in data %}
+                <p class="query_desc__example">{{example[0]}}
+                    {{example[1] | safe }}
+                </p>
+                {% if example[2] %}
+                    <div class="meta_container">
+                        <p class="metadata">Соцсеть: {{example[2]}}</p>
+                        <p class="metadata">Название чата: {{example[3]}}</p>
+                        <p class="metadata">Тема чата: {{example[4]}}</p>
+                        <p class="metadata">Дата и время: {{example[5]}}</p>
+
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+</body>
+</html>
