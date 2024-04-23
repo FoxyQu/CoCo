@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.header {
+   background-color: pink;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+.text-container {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  display: block;
+  text-align: center;
+  padding: 30px 0;
+}
+
+.logo {
+    height: 60px;
+    width: 60px;
+    display: block;
+}
+
+}
+.container {
+  font-family: 'Roboto', sans-serif;
+  max-width: 1146px;
+  margin: 0 auto;
+  padding: 25px;
+  line-height: 200%;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+h2 {
+  padding: 10px 0;
+  font-weight: 300;
+}
+
+h3 {
+  padding: 5px 0;
+  font-weight: 300;
+}
+
+summary{
+  font-weight: 500;
+}
+.query_desc{
+  font-weight: 300;
+  margin-left: 40px;
+  }
+
+.query_desc__example{
+    position: relative; /* Относительное позиционирование */
+  font-weight: 300;
+  margin-left: 40px;
+  }
+
+form{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#search {
+  display: block;
+  width: 70%;
+  /* padding: 12 6; */
+  padding: 0.375rem 0.75rem;
+  margin: 10px;
+}
+.button {
+  display: block;
+  max-width: 600px;
+  /* padding: 12 6; */
+  padding: 0.375rem 0.75rem;
+  margin: 10px;
+}
+
+.metadata {
+  font-style: italic;
+ }
+
+.meta_container {
+    margin-left: 65%;
+    margin-bottom: 30px;
+}
+
+b {
+    font-weight: 500;
+}
+.target {
+    display: inline; /* Строчно-блочный элемент */
+    padding-top: 40px;
+   }
+.target:hover + .description{
+  display: block;
+}
+
+.description {
+    display: none;
+    position: absolute; /* Абсолютное позиционирование */
+    left: 15px;
+    bottom: 24px; /* Положение подсказки */
+    z-index: 1; /* Отображаем подсказку поверх других элементов */
+    background: rgba(255, 192, 203,0.9); /* Полупрозрачный цвет фона */
+    font-size: 15px; /* Размер текста подсказки */
+    padding: 5px 10px; /* Поля */
+    border: 1px solid #333; /* Параметры рамки */
+    line-height: 150%;
+    font-weight: 300;
+}
+
+.description:hover{
+display: block;
+}
