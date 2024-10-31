@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+        <form action="/res" method="get">
+            <details class="search-type">
+                <summary class="search-type-name">Задать метаинформацию</summary>
+
+                <h5 class="meta-info-header">Категория</h5>
+                <label for="sport">Спортивные чаты</label>
+                <input class="category" type="checkbox" id="sport" name="theme" value="Спортивный чат"/>
+                <label for="fandom">Фандомные чаты</label>
+                <input class="category" type="checkbox" id="fandom" name="theme" value="Чат мероприятия"/>
+                <label for="dorm">Чаты общежитий</label>
+                <input class="category" type="checkbox" id="dorm" name="theme" value="Чат студенческого общежития"/>
+                <label for="game">Чаты геймеров</label>
+                <input class="category" type="checkbox" id="game" name="theme" value="чаты геймеров"/>
+
+                <h5 class="meta-info-header">Сообщество</h5>
+
+                <div class="community_search_container">
+                    <div class="community-item">
+                        <input class="community-search" type="search"
+                      placeholder="Поиск по сообществу"
+                      list="communities" name="comm">
+                    <button class="add-btn">+</button>
+                    </div>
+
+                    <datalist id="communities">
+                        {% for comm in communities_list %}
+                            <option value="{{comm[0]}}"></option>
+                        {% endfor %}
+
+                    </datalist>
+                </div>
+
+                <h5 class="meta-info-header">Дата</h5>
+                    <p class="date-desc">Не ранее: </p>
+                    <input name="date-after" type="datetime-local">
+                    <p class="date-desc">Не позднее: </p>
+                    <input name="date-before" type="datetime-local">
+
+
+            </details>
+
+            <details class="search-type">
+                <summary class="search-type-name">Полнотекстовый поиск</summary>
+                <div class="search-box">
+                    <input type="text" class="full-search" name="full-text-q" placeholder="Полнотектовый поиск"}>
+                </div>
+            </details>
+
+            <details class="search-type">
+                <summary class="search-type-name">Расширенный поиск</summary>
+                <div class="search-one-word-container">
+
+                    <div class="search-window">
+                        <div>
+                            <label for="lemma-q">Лемма</label>
+                        </div>
+                        <input type="text" class="extend-search-input" id="lemma-q" name="lemma-q" placeholder="Лемма">
+                    </div>
+
+                    <div class="search-window">
+                        <div>
+                            <label for="form-q">Словоформа</label>
+                        </div>
+                        <input type="text" class="extend-search-input" id="form-q" name="form-q" placeholder="Словоформа">
+                    </div>
+
+                    <div class="search-window">
+                        <div>
+                            <label for="pos-q">Часть речи</label>
+                        </div>
+                        <input type="text" class="extend-search-input" id="pos-q" name="pos-q" placeholder="Часть речи">
+                    </div>
+                </div>
+            </details>
+
+            <details class="search-type">
+                <summary class="search-type-name">Дополнительные настройки</summary>
+                <label for="register">Учитывать регистр</label>
+                <input type="checkbox" name="register" id="register" value="True" class="option"/>
+                <label for="remove-duplicates">Убрать дубликаты</label>
+                <input type="checkbox" name="duplicates" id="remove-duplicates" value="True" class="option"/>
+            </details>
+
+            <input type="submit" value="Найти" class="big-search-btn">
+        </form>
+    </div>
+
+    <script>
+        const add_btn = document.querySelector('.add-btn');
+        const container = document.querySelector('.community_search_container');
+        function addNewSearch (e) {
+            e.preventDefault();
+            const div = document.createElement('div');
+            div.classList.add('community-item');
+            const search = document.createElement('input');
+            search.classList.add('community-search');
+            search.setAttribute("type", "search");
+            search.setAttribute("placeholder", "Поиск по сообществу");
+            search.setAttribute("placeholder", "Поиск по сообществу");
+            search.setAttribute("list", "communities");
+            search.setAttribute("name", "comm");
+            new_btn = document.createElement('button');
+            new_btn.classList.add('add-btn');
+            new_btn.textContent = '+';
+            new_btn.addEventListener('click', addNewSearch);
+            div.append(search);
+            div.append(new_btn);
+            container.append(div);
+        }
+
+        add_btn.addEventListener('click', addNewSearch);
+
+    </script>
+{% endblock %}
