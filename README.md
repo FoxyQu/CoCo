@@ -1,6 +1,6 @@
 # CoCo
 
-[Ссылка на базу данных](https://drive.google.com/file/d/1KBeUV-Tl0FTM5v8zH3EdyJxp5vwOADad/view?usp=sharing)
+Базу данных можно _получить по запросу_.
 
 Нужно скачать базу данных и положить в папку `/instance`
 
