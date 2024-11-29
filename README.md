@@ -18,9 +18,8 @@
 
 - Docker: [Install Docker](https://docs.docker.com/get-docker/)
 - Docker Compose: [Install Docker Compose](https://docs.docker.com/compose/install/)
-- Git: [Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-
-### 1. Скачайте или склонируйте [docker-compose.yml](#)
+- 
+### 1. Скачайте или склонируйте [docker-compose.yml](https://github.com/AnastasiaDobrynina/CoCo/blob/main/docker-compose.yml)
 
 ### 2. Запустите проект с Docker Compose
 В папке с файлом docker-compose.yml выполните команду:
@@ -49,7 +48,7 @@ docker-compose down
 ```
 
 ### Дополнительная информация:
-Образы базы данных и веб-приложения находятся на Docker Hub.
+Образы базы данных и веб-приложения находятся на [Docker Hub](https://hub.docker.com/repository/docker/anesthesia12/coco_corpus/general).
 Для доступа к логам используйте:
 ```
 docker-compose logs -f
